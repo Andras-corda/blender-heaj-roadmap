@@ -1,14 +1,14 @@
 {
-  "projectName": "Mon Projet",
+  "projectName": "Blender-Heaj",
   "phases": [
     {
-      "title": "Phase 1 : Initialisation",
+      "title": "Alpha V0.1 : Initialisation",
       "status": "completed",
-      "date": "Janvier 2024",
-      "description": "Mise en place de l'infrastructure de base et définition des objectifs.",
+      "date": "Octobre 2025",
+      "description": "Mise en place de l'infrastructure de base",
       "tasks": [
         {
-          "name": "Définir les objectifs du projet",
+          "name": "Modele d'architecture MVC",
           "completed": true
         },
         {
@@ -16,91 +16,159 @@
           "completed": true
         },
         {
-          "name": "Configurer l'environnement de développement",
+          "name": "Configurer la base de donnée SQL",
           "completed": true
         },
         {
-          "name": "Rédiger la documentation initiale",
+          "name": "Initialiser le serveur HEROKU",
           "completed": true
         }
       ]
     },
     {
-      "title": "Phase 2 : Développement Core",
-      "status": "in-progress",
-      "date": "Février - Mars 2024",
+      "title": "Alpha V0.2 : Développement phase 1",
+      "status": "completed",
+      "date": "Octobre-Novembre 2025",
       "description": "Développement des fonctionnalités principales de l'application.",
       "tasks": [
         {
-          "name": "Créer l'architecture de base",
+          "name": "Création du MainController pour gestion des routes",
           "completed": true
         },
         {
-          "name": "Implémenter l'authentification",
+          "name": "Implémentation de la connexion avec la base de donnée",
           "completed": true
         },
         {
-          "name": "Développer l'API REST",
-          "completed": false
+          "name": "Création et configuration des Modeles",
+          "completed": true
         },
         {
-          "name": "Créer l'interface utilisateur",
-          "completed": false
+          "name": "Implémentation de la connexion avec Discord",
+          "completed": true
         },
         {
-          "name": "Mettre en place les tests unitaires",
-          "completed": false
+          "name": "Implémentation des premières vues",
+          "completed": true
+        },
+        {
+          "name": "Debug",
+          "completed": true
         }
       ]
     },
     {
-      "title": "Phase 3 : Fonctionnalités Avancées",
-      "status": "todo",
-      "date": "Avril 2024",
-      "description": "Ajout de fonctionnalités avancées et optimisation des performances.",
+      "title": "Alpha V0.3 : Développement phase 2",
+      "status": "completed",
+      "date": "Novembre 2025",
+      "description": "Ajout de fonctionnalités avancées et du style graphique.",
       "tasks": [
         {
-          "name": "Implémenter le système de notifications",
-          "completed": false
+          "name": "Implémentation de vue supplémentaire",
+          "completed": true
         },
         {
-          "name": "Ajouter la recherche avancée",
-          "completed": false
+          "name": "Implémentation des fonctionnalité admin",
+          "completed": true
         },
         {
-          "name": "Optimiser les performances",
-          "completed": false
+          "name": "Ajout des fichiers css",
+          "completed": true
         },
         {
-          "name": "Ajouter le support multilingue",
-          "completed": false
+          "name": "Implémentation des configurateurs",
+          "completed": true
         }
       ]
     },
     {
-      "title": "Phase 4 : Tests et Déploiement",
-      "status": "todo",
-      "date": "Mai 2024",
-      "description": "Tests approfondis et mise en production de l'application.",
+      "title": "Alpha V0.4 : Développement phase 3",
+      "status": "completed",
+      "date": "Novembre 2025",
+      "description": "Ajout de fonctionnalités avancées et du style graphique.",
       "tasks": [
         {
-          "name": "Tests d'intégration complets",
-          "completed": false
+          "name": "Ajout barre de recherche",
+          "completed": true
         },
         {
-          "name": "Tests de charge et performance",
-          "completed": false
+          "name": "Ajout page profile",
+          "completed": true
         },
         {
-          "name": "Correction des bugs critiques",
-          "completed": false
+          "name": "Ajout formulaire CRUD playlist et video",
+          "completed": true
+        },
+        {
+          "name": "Ajout système dev tools",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "title": "Alpha V0.5 -> V1.0.0 : Tests et Déploiement",
+      "status": "completed",
+      "date": "Novembre 2025",
+      "description": "DEBUG",
+      "tasks": [
+        {
+          "name": "debug de la gestion des routes",
+          "completed": true
+        },
+        {
+          "name": "debug de la traduction automatique",
+          "completed": true
+        },
+        {
+          "name": "debug des formulaires",
+          "completed": true
         },
         {
           "name": "Déploiement en production",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "title": "V1.0.1 : Patch de bugs résiduels",
+      "status": "in-progress",
+      "date": "Novembre-Decembre 2025",
+      "description": "DEBUG",
+      "tasks": [
+        {
+          "name": "style de la page videoPlayer.php",
           "completed": false
         },
         {
-          "name": "Formation des utilisateurs",
+          "name": "debug du footer dans le formulaire d'ajout d'une playlist",
+          "completed": false
+        },
+        {
+          "name": "Ajout lien vers le serveur discord",
+          "completed": false
+        },
+        {
+          "name": "Ajout lien vers la roadmap",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "title": "V1.1.0 : Ajouts de fonctionnalités secondaires",
+      "status": "todo",
+      "date": "Decembre-Janvier 2025",
+      "description": "La forum update",
+      "tasks": [
+        {
+          "name": "Implémentation des forums",
+          "completed": false
+        },
+        {
+          "name": "Création d'un flux RSS",
+          "completed": false
+        },
+        {
+          "name": "Alert discord sur base du flux RSS",
           "completed": false
         }
       ]
