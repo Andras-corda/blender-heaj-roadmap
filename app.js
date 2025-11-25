@@ -15,7 +15,7 @@ async function loadRoadmap() {
         window.roadmapData = data;
         
         // Affichage initial
-        displayRoadmap(data.phases);
+        displayTimeline(data.phases);
         
         // Configuration des filtres
         setupFilters();
@@ -29,8 +29,8 @@ async function loadRoadmap() {
     }
 }
 
-// Fonction pour afficher la roadmap
-function displayRoadmap(phases, filterStatus = 'all') {
+// Fonction pour afficher la timeline
+function displayTimeline(phases, filterStatus = 'all') {
     const container = document.getElementById('roadmap-container');
     
     // Filtrer les phases si nécessaire
@@ -43,40 +43,90 @@ function displayRoadmap(phases, filterStatus = 'all') {
         return;
     }
     
-    container.innerHTML = filteredPhases.map(phase => {
-        const progress = calculateProgress(phase.tasks);
+    container.innerHTML = `
+        <div class="timeline">
+            ${filteredPhases.map((phase, index) => {
+                const progress = calculateProgress(phase.tasks);
+                const completedTasks = phase.tasks ? phase.tasks.filter(t => t.completed).length : 0;
+                const totalTasks = phase.tasks ? phase.tasks.length : 0;
+                
+                return `
+                    <div class="timeline-item" data-status="${phase.status}" data-index="${index}">
+                        <div class="timeline-marker ${phase.status}"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-title">${phase.title}</h3>
+                                    ${phase.date ? `<div class="timeline-date">${phase.date}</div>` : ''}
+                                </div>
+                                <span class="status-badge ${phase.status}">
+                                    ${getStatusLabel(phase.status)}
+                                </span>
+                            </div>
+                            
+                            ${phase.description ? `
+                                <p class="timeline-description">${phase.description}</p>
+                            ` : ''}
+                            
+                            <div class="timeline-details">
+                                ${phase.tasks && phase.tasks.length > 0 ? `
+                                    <ul class="tasks">
+                                        ${phase.tasks.map(task => `
+                                            <li class="task-item">
+                                                <div class="task-checkbox ${task.completed ? 'checked' : ''}"></div>
+                                                <span class="task-text ${task.completed ? 'completed' : ''}">${task.name}</span>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                    
+                                    <div class="progress-container">
+                                        <div class="progress-label">
+                                            <span>Progress</span>
+                                            <span>${completedTasks}/${totalTasks} tasks</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: ${progress}%"></div>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                            
+                            ${phase.tasks && phase.tasks.length > 0 ? `
+                                <div class="expand-hint">Click to expand</div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+    
+    // Ajouter les event listeners pour l'expansion
+    setupTimelineExpansion();
+}
+
+// Configuration de l'expansion au clic
+function setupTimelineExpansion() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach(item => {
+        const content = item.querySelector('.timeline-content');
         
-        return `
-            <div class="phase" data-status="${phase.status}">
-                <div class="phase-header">
-                    <div>
-                        <h2 class="phase-title">${phase.title}</h2>
-                        ${phase.date ? `<span class="phase-date">📅 ${phase.date}</span>` : ''}
-                    </div>
-                    <span class="status-badge ${phase.status}">
-                        ${getStatusLabel(phase.status)}
-                    </span>
-                </div>
-                
-                ${phase.description ? `<p class="phase-description">${phase.description}</p>` : ''}
-                
-                ${phase.tasks && phase.tasks.length > 0 ? `
-                    <ul class="tasks">
-                        ${phase.tasks.map(task => `
-                            <li class="task-item">
-                                <div class="task-checkbox ${task.completed ? 'checked' : ''}"></div>
-                                <span class="task-text ${task.completed ? 'completed' : ''}">${task.name}</span>
-                            </li>
-                        `).join('')}
-                    </ul>
-                    
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                    </div>
-                ` : ''}
-            </div>
-        `;
-    }).join('');
+        content.addEventListener('click', (e) => {
+            // Ne pas toggle si on clique sur un checkbox ou un lien
+            if (e.target.closest('.task-checkbox')) return;
+            
+            // Toggle la classe expanded
+            item.classList.toggle('expanded');
+            
+            // Fermer les autres items (optionnel - commentez si vous voulez plusieurs items ouverts)
+            // timelineItems.forEach(otherItem => {
+            //     if (otherItem !== item) {
+            //         otherItem.classList.remove('expanded');
+            //     }
+            // });
+        });
+    });
 }
 
 // Calcul de la progression d'une phase
@@ -89,9 +139,9 @@ function calculateProgress(tasks) {
 // Obtenir le label du statut
 function getStatusLabel(status) {
     const labels = {
-        'todo': 'À faire',
-        'in-progress': 'En cours',
-        'completed': 'Terminé'
+        'todo': 'To do',
+        'in-progress': 'In progress',
+        'completed': 'Completed'
     };
     return labels[status] || status;
 }
@@ -111,8 +161,8 @@ function setupFilters() {
             // Récupérer le statut du filtre
             const filterStatus = button.dataset.status;
             
-            // Afficher la roadmap filtrée
-            displayRoadmap(window.roadmapData.phases, filterStatus);
+            // Afficher la timeline filtrée
+            displayTimeline(window.roadmapData.phases, filterStatus);
         });
     });
 }
