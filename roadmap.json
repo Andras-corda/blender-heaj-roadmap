@@ -1,0 +1,109 @@
+{
+  "projectName": "Mon Projet",
+  "phases": [
+    {
+      "title": "Phase 1 : Initialisation",
+      "status": "completed",
+      "date": "Janvier 2024",
+      "description": "Mise en place de l'infrastructure de base et définition des objectifs.",
+      "tasks": [
+        {
+          "name": "Définir les objectifs du projet",
+          "completed": true
+        },
+        {
+          "name": "Créer le repository GitHub",
+          "completed": true
+        },
+        {
+          "name": "Configurer l'environnement de développement",
+          "completed": true
+        },
+        {
+          "name": "Rédiger la documentation initiale",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "title": "Phase 2 : Développement Core",
+      "status": "in-progress",
+      "date": "Février - Mars 2024",
+      "description": "Développement des fonctionnalités principales de l'application.",
+      "tasks": [
+        {
+          "name": "Créer l'architecture de base",
+          "completed": true
+        },
+        {
+          "name": "Implémenter l'authentification",
+          "completed": true
+        },
+        {
+          "name": "Développer l'API REST",
+          "completed": false
+        },
+        {
+          "name": "Créer l'interface utilisateur",
+          "completed": false
+        },
+        {
+          "name": "Mettre en place les tests unitaires",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "title": "Phase 3 : Fonctionnalités Avancées",
+      "status": "todo",
+      "date": "Avril 2024",
+      "description": "Ajout de fonctionnalités avancées et optimisation des performances.",
+      "tasks": [
+        {
+          "name": "Implémenter le système de notifications",
+          "completed": false
+        },
+        {
+          "name": "Ajouter la recherche avancée",
+          "completed": false
+        },
+        {
+          "name": "Optimiser les performances",
+          "completed": false
+        },
+        {
+          "name": "Ajouter le support multilingue",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "title": "Phase 4 : Tests et Déploiement",
+      "status": "todo",
+      "date": "Mai 2024",
+      "description": "Tests approfondis et mise en production de l'application.",
+      "tasks": [
+        {
+          "name": "Tests d'intégration complets",
+          "completed": false
+        },
+        {
+          "name": "Tests de charge et performance",
+          "completed": false
+        },
+        {
+          "name": "Correction des bugs critiques",
+          "completed": false
+        },
+        {
+          "name": "Déploiement en production",
+          "completed": false
+        },
+        {
+          "name": "Formation des utilisateurs",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

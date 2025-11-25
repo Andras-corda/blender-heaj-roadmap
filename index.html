@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Roadmap</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Roadmap du Projet</h1>
+            <div class="filters">
+                <button class="filter-btn active" data-status="all">Tous</button>
+                <button class="filter-btn" data-status="todo">À faire</button>
+                <button class="filter-btn" data-status="in-progress">En cours</button>
+                <button class="filter-btn" data-status="completed">Terminé</button>
+            </div>
+        </header>
+
+        <main id="roadmap-container">
+            <div class="loading">Chargement de la roadmap...</div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
